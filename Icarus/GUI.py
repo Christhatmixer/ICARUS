@@ -8,7 +8,10 @@ import time
 import os
 import subprocess
 import struct
-from tkinter import *
+try:
+    from tkinter import *
+except:
+    from Tkinter import *
 
 connected = False
 arduino = ""
@@ -137,7 +140,7 @@ try:
     if b"Light" in command and not (b"Light" in lastCommand):
         for sites in siteList:
             webbrowser.open(sites)
-        os.startfile(r"C:\Users\cfarl_000\Music\Playlists\Top Rated.wpl")
+        os.startfile(playListEntry.get)
         lastCommand = b"Light"
         time.sleep(2)
 except:
