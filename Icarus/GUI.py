@@ -10,7 +10,7 @@ import subprocess
 import struct
 try:
     from tkinter import *
-except:
+except ImportError:
     from Tkinter import *
 
 connected = False
@@ -34,6 +34,7 @@ except:
                     arduino = serial.Serial("COM2", 9600)
                 except:
                     print("No Arduino Found")
+                    pass
                 else:
                     connected = True
 
@@ -46,7 +47,6 @@ except:
         connected = True
 else:
     connected = True
-
 
 #Main Window
 root = Tk()
